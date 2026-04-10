@@ -7,11 +7,16 @@ class HomeFeatureScreen extends StatelessWidget {
   const HomeFeatureScreen({super.key});
   @override
   Widget build(BuildContext context) {
-    final _ = context.read<HomeCubit>();
-
+    final homeCubit = context.read<HomeCubit>();
     return Scaffold(
       appBar: AppBar(title: const Text('Home Feature Screen')),
-      body: Column(children: [CameraScannerFeatureWidget(onTap: () => {})]),
+      body: Column(
+        children: [
+          CameraScannerFeatureWidget(
+            onTap: () async => await homeCubit.pickImageFromCamera(),
+          ),
+        ],
+      ),
     );
   }
 }
