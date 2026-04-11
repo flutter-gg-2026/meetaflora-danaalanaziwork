@@ -21,23 +21,6 @@ class HomeCubit extends Cubit<HomeState> {
     );
   }
 
-  Future<void> pickImageFromCamera() async {
-    final status = await Permission.camera.request();
-
-    if (!status.isGranted) {
-      print("Camera permission denied");
-      return;
-    }
-
-    final ImagePicker picker = ImagePicker();
-    final XFile? image = await picker.pickImage(source: ImageSource.camera);
-
-    if (image != null) {
-      print("Image captured: ${image.path}");
-      // Later: Next prepare the image then send it to the API
-    }
-  }
-
   @override
   Future<void> close() {
     //here is when close cubit

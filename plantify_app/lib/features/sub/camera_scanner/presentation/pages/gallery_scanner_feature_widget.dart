@@ -4,8 +4,8 @@ import 'package:get_it/get_it.dart';
 import 'package:plantify_app/core/constants/app_colors.dart';
 import 'package:plantify_app/features/sub/camera_scanner/presentation/cubit/camera_scanner_cubit.dart';
 
-class CameraScannerFeatureWidget extends StatelessWidget {
-  const CameraScannerFeatureWidget({super.key});
+class GalleryScannerFeatureWidget extends StatelessWidget {
+  const GalleryScannerFeatureWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class CameraScannerFeatureWidget extends StatelessWidget {
         builder: (context) {
           final cubit = context.read<CameraScannerCubit>();
           return InkWell(
-            onTap: cubit.pickImageFromCamera,
+            onTap: cubit.pickImageFromGallery,
             child: Container(
               height: 80,
               width: 80,
@@ -26,7 +26,7 @@ class CameraScannerFeatureWidget extends StatelessWidget {
               ),
               child: Center(
                 child: Icon(
-                  Icons.camera_alt_outlined,
+                  Icons.photo_library_outlined,
                   color: AppColors.white,
                   size: 32,
                 ),
