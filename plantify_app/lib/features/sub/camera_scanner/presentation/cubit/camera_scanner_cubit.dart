@@ -14,31 +14,11 @@ class CameraScannerCubit extends Cubit<CameraScannerState> {
     result.when(
       (success) {
         //here is when success result
-        print("🌿 Plant Identification SUCCESS");
-        print("Image Path: $imagePath");
-        print("Total Results: ${success.results.length}");
-        for (var i = 0; i < success.results.length; i++) {
-          final r = success.results[i];
-          print("---- Result #$i ----");
-          print("Scientific Name: ${r.scientificName}");
-          print("Common Names: ${r.commonNames}");
-          print("Score: ${r.score}");
-
-          if (r.images.isNotEmpty) {
-            print("Images:");
-            for (var img in r.images) {
-              print(" - Organ: ${img.organ}");
-              print(" - URL: ${img.url}");
-            }
-          } else {
-            print("No reference images");
-          }
-        }
-        emit(CameraScannerSuccessState());
+        emit(CameraScannerSuccessState(responseData: success));
       },
       (whenError) {
         //here is when error result
-        print("❌ Plant Identification ERROR: $whenError");
+        print("Plant Identification ERROR: $whenError");//delete this later
         emit(CameraScannerErrorState(message: whenError.message));
       },
     );

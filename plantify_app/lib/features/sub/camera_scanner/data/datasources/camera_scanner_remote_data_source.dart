@@ -16,9 +16,11 @@ class CameraScannerRemoteDataSource
   @override
   Future<PlantIdentificationModel> identifyPlant(String imagePath) async {
     try {
-      final results = await dio.identifyPlant(imagePath);
-      print(results);
-      return PlantIdentificationModel.fromJson(results);
+      final accessToken = await dio.uploadPlantFile(imagePath);
+      print(accessToken);
+      final result = await dio.getPlantResult(accessToken);
+      print(result);
+      return PlantIdentificationModel.fromJson(result);
     } catch (error) {
       throw FailureExceptions.getException(error);
     }

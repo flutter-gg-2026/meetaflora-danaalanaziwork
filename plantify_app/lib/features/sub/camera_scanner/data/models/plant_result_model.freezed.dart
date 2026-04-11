@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$PlantResultModel {
 
- String get scientificName; List<String> get commonNames; double get score; List<PlantImageModel> get images;
+@JsonKey(name: "classification") PlantClassificationModel get classification;@JsonKey(name: "is_plant") PlantIsPlantModel get isPlant;
 /// Create a copy of PlantResultModel
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $PlantResultModelCopyWith<PlantResultModel> get copyWith => _$PlantResultModelCo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is PlantResultModel&&(identical(other.scientificName, scientificName) || other.scientificName == scientificName)&&const DeepCollectionEquality().equals(other.commonNames, commonNames)&&(identical(other.score, score) || other.score == score)&&const DeepCollectionEquality().equals(other.images, images));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is PlantResultModel&&(identical(other.classification, classification) || other.classification == classification)&&(identical(other.isPlant, isPlant) || other.isPlant == isPlant));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,scientificName,const DeepCollectionEquality().hash(commonNames),score,const DeepCollectionEquality().hash(images));
+int get hashCode => Object.hash(runtimeType,classification,isPlant);
 
 @override
 String toString() {
-  return 'PlantResultModel(scientificName: $scientificName, commonNames: $commonNames, score: $score, images: $images)';
+  return 'PlantResultModel(classification: $classification, isPlant: $isPlant)';
 }
 
 
@@ -48,11 +48,11 @@ abstract mixin class $PlantResultModelCopyWith<$Res>  {
   factory $PlantResultModelCopyWith(PlantResultModel value, $Res Function(PlantResultModel) _then) = _$PlantResultModelCopyWithImpl;
 @useResult
 $Res call({
- String scientificName, List<String> commonNames, double score, List<PlantImageModel> images
+@JsonKey(name: "classification") PlantClassificationModel classification,@JsonKey(name: "is_plant") PlantIsPlantModel isPlant
 });
 
 
-
+$PlantClassificationModelCopyWith<$Res> get classification;$PlantIsPlantModelCopyWith<$Res> get isPlant;
 
 }
 /// @nodoc
@@ -65,16 +65,32 @@ class _$PlantResultModelCopyWithImpl<$Res>
 
 /// Create a copy of PlantResultModel
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? scientificName = null,Object? commonNames = null,Object? score = null,Object? images = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? classification = null,Object? isPlant = null,}) {
   return _then(_self.copyWith(
-scientificName: null == scientificName ? _self.scientificName : scientificName // ignore: cast_nullable_to_non_nullable
-as String,commonNames: null == commonNames ? _self.commonNames : commonNames // ignore: cast_nullable_to_non_nullable
-as List<String>,score: null == score ? _self.score : score // ignore: cast_nullable_to_non_nullable
-as double,images: null == images ? _self.images : images // ignore: cast_nullable_to_non_nullable
-as List<PlantImageModel>,
+classification: null == classification ? _self.classification : classification // ignore: cast_nullable_to_non_nullable
+as PlantClassificationModel,isPlant: null == isPlant ? _self.isPlant : isPlant // ignore: cast_nullable_to_non_nullable
+as PlantIsPlantModel,
   ));
 }
-
+/// Create a copy of PlantResultModel
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$PlantClassificationModelCopyWith<$Res> get classification {
+  
+  return $PlantClassificationModelCopyWith<$Res>(_self.classification, (value) {
+    return _then(_self.copyWith(classification: value));
+  });
+}/// Create a copy of PlantResultModel
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$PlantIsPlantModelCopyWith<$Res> get isPlant {
+  
+  return $PlantIsPlantModelCopyWith<$Res>(_self.isPlant, (value) {
+    return _then(_self.copyWith(isPlant: value));
+  });
+}
 }
 
 
@@ -156,10 +172,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String scientificName,  List<String> commonNames,  double score,  List<PlantImageModel> images)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: "classification")  PlantClassificationModel classification, @JsonKey(name: "is_plant")  PlantIsPlantModel isPlant)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _PlantResultModel() when $default != null:
-return $default(_that.scientificName,_that.commonNames,_that.score,_that.images);case _:
+return $default(_that.classification,_that.isPlant);case _:
   return orElse();
 
 }
@@ -177,10 +193,10 @@ return $default(_that.scientificName,_that.commonNames,_that.score,_that.images)
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String scientificName,  List<String> commonNames,  double score,  List<PlantImageModel> images)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: "classification")  PlantClassificationModel classification, @JsonKey(name: "is_plant")  PlantIsPlantModel isPlant)  $default,) {final _that = this;
 switch (_that) {
 case _PlantResultModel():
-return $default(_that.scientificName,_that.commonNames,_that.score,_that.images);case _:
+return $default(_that.classification,_that.isPlant);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -197,10 +213,10 @@ return $default(_that.scientificName,_that.commonNames,_that.score,_that.images)
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String scientificName,  List<String> commonNames,  double score,  List<PlantImageModel> images)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: "classification")  PlantClassificationModel classification, @JsonKey(name: "is_plant")  PlantIsPlantModel isPlant)?  $default,) {final _that = this;
 switch (_that) {
 case _PlantResultModel() when $default != null:
-return $default(_that.scientificName,_that.commonNames,_that.score,_that.images);case _:
+return $default(_that.classification,_that.isPlant);case _:
   return null;
 
 }
@@ -212,25 +228,11 @@ return $default(_that.scientificName,_that.commonNames,_that.score,_that.images)
 @JsonSerializable()
 
 class _PlantResultModel implements PlantResultModel {
-  const _PlantResultModel({required this.scientificName, required final  List<String> commonNames, required this.score, required final  List<PlantImageModel> images}): _commonNames = commonNames,_images = images;
+  const _PlantResultModel({@JsonKey(name: "classification") required this.classification, @JsonKey(name: "is_plant") required this.isPlant});
   factory _PlantResultModel.fromJson(Map<String, dynamic> json) => _$PlantResultModelFromJson(json);
 
-@override final  String scientificName;
- final  List<String> _commonNames;
-@override List<String> get commonNames {
-  if (_commonNames is EqualUnmodifiableListView) return _commonNames;
-  // ignore: implicit_dynamic_type
-  return EqualUnmodifiableListView(_commonNames);
-}
-
-@override final  double score;
- final  List<PlantImageModel> _images;
-@override List<PlantImageModel> get images {
-  if (_images is EqualUnmodifiableListView) return _images;
-  // ignore: implicit_dynamic_type
-  return EqualUnmodifiableListView(_images);
-}
-
+@override@JsonKey(name: "classification") final  PlantClassificationModel classification;
+@override@JsonKey(name: "is_plant") final  PlantIsPlantModel isPlant;
 
 /// Create a copy of PlantResultModel
 /// with the given fields replaced by the non-null parameter values.
@@ -245,16 +247,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _PlantResultModel&&(identical(other.scientificName, scientificName) || other.scientificName == scientificName)&&const DeepCollectionEquality().equals(other._commonNames, _commonNames)&&(identical(other.score, score) || other.score == score)&&const DeepCollectionEquality().equals(other._images, _images));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _PlantResultModel&&(identical(other.classification, classification) || other.classification == classification)&&(identical(other.isPlant, isPlant) || other.isPlant == isPlant));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,scientificName,const DeepCollectionEquality().hash(_commonNames),score,const DeepCollectionEquality().hash(_images));
+int get hashCode => Object.hash(runtimeType,classification,isPlant);
 
 @override
 String toString() {
-  return 'PlantResultModel(scientificName: $scientificName, commonNames: $commonNames, score: $score, images: $images)';
+  return 'PlantResultModel(classification: $classification, isPlant: $isPlant)';
 }
 
 
@@ -265,11 +267,11 @@ abstract mixin class _$PlantResultModelCopyWith<$Res> implements $PlantResultMod
   factory _$PlantResultModelCopyWith(_PlantResultModel value, $Res Function(_PlantResultModel) _then) = __$PlantResultModelCopyWithImpl;
 @override @useResult
 $Res call({
- String scientificName, List<String> commonNames, double score, List<PlantImageModel> images
+@JsonKey(name: "classification") PlantClassificationModel classification,@JsonKey(name: "is_plant") PlantIsPlantModel isPlant
 });
 
 
-
+@override $PlantClassificationModelCopyWith<$Res> get classification;@override $PlantIsPlantModelCopyWith<$Res> get isPlant;
 
 }
 /// @nodoc
@@ -282,17 +284,33 @@ class __$PlantResultModelCopyWithImpl<$Res>
 
 /// Create a copy of PlantResultModel
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? scientificName = null,Object? commonNames = null,Object? score = null,Object? images = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? classification = null,Object? isPlant = null,}) {
   return _then(_PlantResultModel(
-scientificName: null == scientificName ? _self.scientificName : scientificName // ignore: cast_nullable_to_non_nullable
-as String,commonNames: null == commonNames ? _self._commonNames : commonNames // ignore: cast_nullable_to_non_nullable
-as List<String>,score: null == score ? _self.score : score // ignore: cast_nullable_to_non_nullable
-as double,images: null == images ? _self._images : images // ignore: cast_nullable_to_non_nullable
-as List<PlantImageModel>,
+classification: null == classification ? _self.classification : classification // ignore: cast_nullable_to_non_nullable
+as PlantClassificationModel,isPlant: null == isPlant ? _self.isPlant : isPlant // ignore: cast_nullable_to_non_nullable
+as PlantIsPlantModel,
   ));
 }
 
-
+/// Create a copy of PlantResultModel
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$PlantClassificationModelCopyWith<$Res> get classification {
+  
+  return $PlantClassificationModelCopyWith<$Res>(_self.classification, (value) {
+    return _then(_self.copyWith(classification: value));
+  });
+}/// Create a copy of PlantResultModel
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$PlantIsPlantModelCopyWith<$Res> get isPlant {
+  
+  return $PlantIsPlantModelCopyWith<$Res>(_self.isPlant, (value) {
+    return _then(_self.copyWith(isPlant: value));
+  });
+}
 }
 
 // dart format on

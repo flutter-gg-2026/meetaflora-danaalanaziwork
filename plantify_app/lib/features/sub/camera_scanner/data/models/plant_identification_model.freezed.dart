@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$PlantIdentificationModel {
 
- List<PlantResultModel> get results;
+@JsonKey(name: "access_token") String get accessToken;@JsonKey(name: "model_version") String get modelVersion; PlantInputModel get input; PlantResultModel get result; String get status;
 /// Create a copy of PlantIdentificationModel
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $PlantIdentificationModelCopyWith<PlantIdentificationModel> get copyWith => _$Pl
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is PlantIdentificationModel&&const DeepCollectionEquality().equals(other.results, results));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is PlantIdentificationModel&&(identical(other.accessToken, accessToken) || other.accessToken == accessToken)&&(identical(other.modelVersion, modelVersion) || other.modelVersion == modelVersion)&&(identical(other.input, input) || other.input == input)&&(identical(other.result, result) || other.result == result)&&(identical(other.status, status) || other.status == status));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(results));
+int get hashCode => Object.hash(runtimeType,accessToken,modelVersion,input,result,status);
 
 @override
 String toString() {
-  return 'PlantIdentificationModel(results: $results)';
+  return 'PlantIdentificationModel(accessToken: $accessToken, modelVersion: $modelVersion, input: $input, result: $result, status: $status)';
 }
 
 
@@ -48,11 +48,11 @@ abstract mixin class $PlantIdentificationModelCopyWith<$Res>  {
   factory $PlantIdentificationModelCopyWith(PlantIdentificationModel value, $Res Function(PlantIdentificationModel) _then) = _$PlantIdentificationModelCopyWithImpl;
 @useResult
 $Res call({
- List<PlantResultModel> results
+@JsonKey(name: "access_token") String accessToken,@JsonKey(name: "model_version") String modelVersion, PlantInputModel input, PlantResultModel result, String status
 });
 
 
-
+$PlantInputModelCopyWith<$Res> get input;$PlantResultModelCopyWith<$Res> get result;
 
 }
 /// @nodoc
@@ -65,13 +65,35 @@ class _$PlantIdentificationModelCopyWithImpl<$Res>
 
 /// Create a copy of PlantIdentificationModel
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? results = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? accessToken = null,Object? modelVersion = null,Object? input = null,Object? result = null,Object? status = null,}) {
   return _then(_self.copyWith(
-results: null == results ? _self.results : results // ignore: cast_nullable_to_non_nullable
-as List<PlantResultModel>,
+accessToken: null == accessToken ? _self.accessToken : accessToken // ignore: cast_nullable_to_non_nullable
+as String,modelVersion: null == modelVersion ? _self.modelVersion : modelVersion // ignore: cast_nullable_to_non_nullable
+as String,input: null == input ? _self.input : input // ignore: cast_nullable_to_non_nullable
+as PlantInputModel,result: null == result ? _self.result : result // ignore: cast_nullable_to_non_nullable
+as PlantResultModel,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
+as String,
   ));
 }
-
+/// Create a copy of PlantIdentificationModel
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$PlantInputModelCopyWith<$Res> get input {
+  
+  return $PlantInputModelCopyWith<$Res>(_self.input, (value) {
+    return _then(_self.copyWith(input: value));
+  });
+}/// Create a copy of PlantIdentificationModel
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$PlantResultModelCopyWith<$Res> get result {
+  
+  return $PlantResultModelCopyWith<$Res>(_self.result, (value) {
+    return _then(_self.copyWith(result: value));
+  });
+}
 }
 
 
@@ -153,10 +175,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<PlantResultModel> results)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: "access_token")  String accessToken, @JsonKey(name: "model_version")  String modelVersion,  PlantInputModel input,  PlantResultModel result,  String status)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _PlantIdentificationModel() when $default != null:
-return $default(_that.results);case _:
+return $default(_that.accessToken,_that.modelVersion,_that.input,_that.result,_that.status);case _:
   return orElse();
 
 }
@@ -174,10 +196,10 @@ return $default(_that.results);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<PlantResultModel> results)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: "access_token")  String accessToken, @JsonKey(name: "model_version")  String modelVersion,  PlantInputModel input,  PlantResultModel result,  String status)  $default,) {final _that = this;
 switch (_that) {
 case _PlantIdentificationModel():
-return $default(_that.results);case _:
+return $default(_that.accessToken,_that.modelVersion,_that.input,_that.result,_that.status);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -194,10 +216,10 @@ return $default(_that.results);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<PlantResultModel> results)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: "access_token")  String accessToken, @JsonKey(name: "model_version")  String modelVersion,  PlantInputModel input,  PlantResultModel result,  String status)?  $default,) {final _that = this;
 switch (_that) {
 case _PlantIdentificationModel() when $default != null:
-return $default(_that.results);case _:
+return $default(_that.accessToken,_that.modelVersion,_that.input,_that.result,_that.status);case _:
   return null;
 
 }
@@ -209,16 +231,14 @@ return $default(_that.results);case _:
 @JsonSerializable()
 
 class _PlantIdentificationModel implements PlantIdentificationModel {
-  const _PlantIdentificationModel({required final  List<PlantResultModel> results}): _results = results;
+  const _PlantIdentificationModel({@JsonKey(name: "access_token") required this.accessToken, @JsonKey(name: "model_version") required this.modelVersion, required this.input, required this.result, required this.status});
   factory _PlantIdentificationModel.fromJson(Map<String, dynamic> json) => _$PlantIdentificationModelFromJson(json);
 
- final  List<PlantResultModel> _results;
-@override List<PlantResultModel> get results {
-  if (_results is EqualUnmodifiableListView) return _results;
-  // ignore: implicit_dynamic_type
-  return EqualUnmodifiableListView(_results);
-}
-
+@override@JsonKey(name: "access_token") final  String accessToken;
+@override@JsonKey(name: "model_version") final  String modelVersion;
+@override final  PlantInputModel input;
+@override final  PlantResultModel result;
+@override final  String status;
 
 /// Create a copy of PlantIdentificationModel
 /// with the given fields replaced by the non-null parameter values.
@@ -233,16 +253,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _PlantIdentificationModel&&const DeepCollectionEquality().equals(other._results, _results));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _PlantIdentificationModel&&(identical(other.accessToken, accessToken) || other.accessToken == accessToken)&&(identical(other.modelVersion, modelVersion) || other.modelVersion == modelVersion)&&(identical(other.input, input) || other.input == input)&&(identical(other.result, result) || other.result == result)&&(identical(other.status, status) || other.status == status));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_results));
+int get hashCode => Object.hash(runtimeType,accessToken,modelVersion,input,result,status);
 
 @override
 String toString() {
-  return 'PlantIdentificationModel(results: $results)';
+  return 'PlantIdentificationModel(accessToken: $accessToken, modelVersion: $modelVersion, input: $input, result: $result, status: $status)';
 }
 
 
@@ -253,11 +273,11 @@ abstract mixin class _$PlantIdentificationModelCopyWith<$Res> implements $PlantI
   factory _$PlantIdentificationModelCopyWith(_PlantIdentificationModel value, $Res Function(_PlantIdentificationModel) _then) = __$PlantIdentificationModelCopyWithImpl;
 @override @useResult
 $Res call({
- List<PlantResultModel> results
+@JsonKey(name: "access_token") String accessToken,@JsonKey(name: "model_version") String modelVersion, PlantInputModel input, PlantResultModel result, String status
 });
 
 
-
+@override $PlantInputModelCopyWith<$Res> get input;@override $PlantResultModelCopyWith<$Res> get result;
 
 }
 /// @nodoc
@@ -270,14 +290,36 @@ class __$PlantIdentificationModelCopyWithImpl<$Res>
 
 /// Create a copy of PlantIdentificationModel
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? results = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? accessToken = null,Object? modelVersion = null,Object? input = null,Object? result = null,Object? status = null,}) {
   return _then(_PlantIdentificationModel(
-results: null == results ? _self._results : results // ignore: cast_nullable_to_non_nullable
-as List<PlantResultModel>,
+accessToken: null == accessToken ? _self.accessToken : accessToken // ignore: cast_nullable_to_non_nullable
+as String,modelVersion: null == modelVersion ? _self.modelVersion : modelVersion // ignore: cast_nullable_to_non_nullable
+as String,input: null == input ? _self.input : input // ignore: cast_nullable_to_non_nullable
+as PlantInputModel,result: null == result ? _self.result : result // ignore: cast_nullable_to_non_nullable
+as PlantResultModel,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
+as String,
   ));
 }
 
-
+/// Create a copy of PlantIdentificationModel
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$PlantInputModelCopyWith<$Res> get input {
+  
+  return $PlantInputModelCopyWith<$Res>(_self.input, (value) {
+    return _then(_self.copyWith(input: value));
+  });
+}/// Create a copy of PlantIdentificationModel
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$PlantResultModelCopyWith<$Res> get result {
+  
+  return $PlantResultModelCopyWith<$Res>(_self.result, (value) {
+    return _then(_self.copyWith(result: value));
+  });
+}
 }
 
 // dart format on

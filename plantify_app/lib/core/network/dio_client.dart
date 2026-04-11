@@ -14,10 +14,10 @@ class DioClient {
         connectTimeout: const Duration(seconds: 30),
         receiveTimeout: const Duration(seconds: 30),
         headers: {
-          'Content-Type': 'application/json',
           'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          'Api-Key': dotenv.env['plant_id_key'],
         },
-        queryParameters: {'api-key': dotenv.env['plant_net_key']},
       ),
     );
 

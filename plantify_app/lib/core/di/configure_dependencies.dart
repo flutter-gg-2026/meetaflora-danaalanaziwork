@@ -3,6 +3,7 @@ import 'package:plantify_app/core/di/configure_dependencies.config.dart';
 import 'package:injectable/injectable.dart';
 import 'package:plantify_app/features/home/di/home_di.dart';
 import 'package:plantify_app/features/sub/camera_scanner/di/camera_scanner_di.dart';
+import 'package:plantify_app/features/results/di/results_di.dart';
 
 @InjectableInit(
   initializerName: 'init', 
@@ -16,4 +17,5 @@ Future<void> configureDependencies() async {
   getIt.init();
     configureHome(getIt);
     configureCameraScannerSub(getIt);
+    configureResults(getIt);
 }
