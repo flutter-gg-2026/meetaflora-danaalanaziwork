@@ -1,16 +1,12 @@
 import 'package:equatable/equatable.dart';
+import 'package:plantify_app/features/sub/camera_scanner/domain/entities/plant_image_url_entity.dart';
 
-class CameraScannerEntity extends Equatable {
-  final int id;
-  final String firstName;
-  final String lastName;
+class PlantImageEntity extends Equatable {
+  final PlantImageUrlEntity url;
+  final String organ;
 
-  const CameraScannerEntity({
-    required this.id,
-    required this.firstName,
-    required this.lastName,
-  });
+  const PlantImageEntity({required this.url, required this.organ});
 
   @override
-  List<Object?> get props => [firstName, lastName, id];
+  List<Object?> get props => [url,organ];
 }

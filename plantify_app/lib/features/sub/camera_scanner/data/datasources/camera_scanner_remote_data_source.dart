@@ -1,33 +1,26 @@
 import 'package:injectable/injectable.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
-import 'package:plantify_app/core/services/local_keys_service.dart';
-import 'package:plantify_app/features/sub/camera_scanner/data/models/camera_scanner_model.dart';
+import 'package:plantify_app/core/network/dio_client.dart';
+import 'package:plantify_app/core/network/plant_net_client.dart';
+import 'package:plantify_app/features/sub/camera_scanner/data/models/plant_identification_model.dart';
 import 'package:plantify_app/core/errors/network_exceptions.dart';
 
-
 abstract class BaseCameraScannerRemoteDataSource {
-  Future<CameraScannerModel> getCameraScanner();
+  Future<PlantIdentificationModel> identifyPlant(String imagePath);
 }
 
-
 @LazySingleton(as: BaseCameraScannerRemoteDataSource)
-class CameraScannerRemoteDataSource implements BaseCameraScannerRemoteDataSource {
- 
-  final SupabaseClient _supabase;
-  final LocalKeysService _localKeysService;
-  
-  
-
-   CameraScannerRemoteDataSource(this._localKeysService, this._supabase);
-
-
-
-    @override
-  Future<CameraScannerModel> getCameraScanner() async {
+class CameraScannerRemoteDataSource
+    implements BaseCameraScannerRemoteDataSource {
+  CameraScannerRemoteDataSource({required this.dio});
+  final DioClient dio;
+  @override
+  Future<PlantIdentificationModel> identifyPlant(String imagePath) async {
     try {
-      return CameraScannerModel(id: 1, firstName: "Last Name", lastName: "First Name");
+      final results = await dio.identifyPlant(imagePath);
+      print(results);
+      return PlantIdentificationModel.fromJson(results);
     } catch (error) {
-     throw FailureExceptions.getException(error);
+      throw FailureExceptions.getException(error);
     }
   }
 }

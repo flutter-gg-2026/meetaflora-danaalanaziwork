@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:injectable/injectable.dart';
 import 'api_endpoints.dart';
 
@@ -16,6 +17,7 @@ class DioClient {
           'Content-Type': 'application/json',
           'Accept': 'application/json',
         },
+        queryParameters: {'api-key': dotenv.env['plant_net_key']},
       ),
     );
 

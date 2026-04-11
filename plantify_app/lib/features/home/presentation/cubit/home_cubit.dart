@@ -1,8 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:plantify_app/features/home/domain/use_cases/home_use_case.dart';
 import 'package:plantify_app/features/home/presentation/cubit/home_state.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:permission_handler/permission_handler.dart';
 
 class HomeCubit extends Cubit<HomeState> {
   final HomeUseCase _homeUseCase;
