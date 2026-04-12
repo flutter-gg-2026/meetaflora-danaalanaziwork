@@ -1,68 +1,98 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/dq6pKgp_)
-# 📝 Assignment: "Meet A Flora !" 🌿✨
+🌿 Plantify – AI Plant Identification App
+Plantify is a modern Flutter application that identifies plants using AI.
+Users can take a photo or upload one from their gallery, and Plantify analyzes the image using the Plant.id API to provide detailed plant information such as:
 
-Welcome to the **Meet A Flora** project. In this assignment, you are tasked with building a high-standard Flutter application that integrates AI capabilities with professional software engineering practices.
+Scientific name
 
-## 🎯 Project Overview
-The goal is to create an app that identifies plants via images or camera and provides dynamic, auto-generated botanical data. 
+Common names
 
----
+Description
 
-## 📱 User Interface & Flow (Two-Page Requirement)
+Taxonomy
 
-Your application must consist of exactly two main screens with the following logic:
+Synonyms
 
-### **Page 1: Discovery & Scanning**
-* **Scan Feature:** Access the mobile camera to identify a plant in real-time.
-##OR
-* **Plant List:** A pre-defined list/gallery of various plants for users to choose from.
-* **Goal:** The user must be able to either "Capture" a new plant or "Select" one from the existing collection.
+Similar images
 
-### **Page 2: Dynamic Plant Details**
-* **Dynamic Content:** When a plant is selected or scanned, this page must display its details.
-* **The "Fresh Data" Condition:** The information (care tips, facts, etc.) must be **auto-generated/refreshed** every single time the user enters the page. The data should not be static or repeated; it must demonstrate dynamic fetching or AI-generation.
+And more
 
----
+The app is built with clean architecture, smooth animations, and a minimal, elegant UI.
 
-## 🚀 Required Features (Functional Requirements)
+✨ Features
+📸 Camera Capture – Take a photo directly inside the app
 
-* **AI Plant Recognition:** Use AI to identify plants from the gallery or live camera feed.
-* **Dynamic Information:** All plant data must be fetched dynamically to ensure unique content on every visit.
-* **Camera Integration:** High-performance implementation for seamless identification.
-* **Advanced Error Handling:** A system that handles both logic errors and network failures using the **Failure Concept**.
+🖼️ Gallery Upload – Select existing images from your device
 
----
+🌱 AI‑Powered Identification – Powered by Plant.id v3
 
-## 🏗️ Technical Constraints & Architecture
+📚 Detailed Plant Information
 
-### **The Clean Architecture Pattern**
-The most critical requirement is the strict implementation of **Clean Architecture**. Your code must demonstrate:
-* **Independence:** Business logic (Domain) must be decoupled from the UI and Data sources.
-* **Abstraction:** Use abstract repositories to handle data flow.
-* **Scalability:** Design the app so that adding new AI models or data sources doesn't break the UI.
+🎨 Modern UI & Animations
 
-### **State Management: BLoC**
-* Use **BLoC** to manage transitions between `Initial`, `Loading`, `Success`, and `Failure` states.
-* Ensure the "Dynamic Refresh" logic on the second page is handled through appropriate BLoC events.
+⚙️ Clean Architecture (Bloc + DI + Freezed)
 
-### **Networking & Routing**
-* **Dio:** Use Dio with interceptors for all API communication.
-* **GoRouter:** Implement declarative routing to pass plant data between Page 1 and Page 2.
+🔐 Secure API Keys via .env
 
----
+📱 Android & iOS Support
 
-## 🛡 Error Handling Standards
+🏗️ Tech Stack
+Flutter
 
-> ⚠️ **Note:** Generic `try-catch` blocks in the UI are strictly prohibited.
+Bloc / Cubit
 
-* Use the **Either Pattern** to return results.
-* Map all exceptions to specific **Failure** objects (e.g., `ServerFailure`, `CameraFailure`).
+GetIt + Injectable
 
----
+Dio
 
-## 📝 Submission Guidelines
-1.  **Code Quality:** Adherence to  **Clean Code**.
-2.  **Architecture:** Clear separation between Domain, Data, and Presentation layers.
-3.  **UX:** The "Dynamic Info" must feel fast and responsive.
+Freezed + Json Serializable
 
-**Good luck with your Coding! 🚀**
+flutter_hooks
+
+go_router
+
+image_picker
+
+Plant.id API
+
+📂 Project Structure
+
+lib/
+ ├── core/
+ ├── features/
+ │    ├── camera_scanner/
+ │    │     ├── data/
+ │    │     ├── domain/
+ │    │     └── presentation/
+ │    └── home/
+ ├── injection/
+ └── main.dart
+
+🚀 Getting Started
+
+1. Clone the repository
+
+git clone https://github.com/your-username/plantify_app.git
+cd plantify_app
+
+2. Install dependencies
+
+flutter pub get
+
+3. Add your .env file
+Create a .env file in the project root:
+PLANT_ID_API_KEY=your_api_key_here
+
+4. Run the app
+flutter run
+
+🎨 App Icon
+Plantify uses flutter_launcher_icons to generate platform‑specific icons.
+
+To regenerate icons:
+flutter pub run flutter_launcher_icons
+
+📸 Screenshots
+Add screenshots here
+
+🎥 Demo
+Add demo video or GIF here
