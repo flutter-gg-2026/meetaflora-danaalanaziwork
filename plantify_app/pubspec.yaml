@@ -38,6 +38,7 @@ dependencies:
   any_image_view: ^2.1.0
   flutter_image_compress: ^2.4.0
   gap: ^3.0.1
+  flutter_launcher_icons: ^0.14.4
 
 dev_dependencies:
   flutter_test:
@@ -47,6 +48,11 @@ dev_dependencies:
   freezed: ^3.2.5
   injectable_generator: ^2.12.1
   json_serializable: ^6.13.1
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/icons/app_icon.png"
 
 flutter:
   assets:

@@ -11,7 +11,7 @@ class SplashScreen extends HookWidget {
   @override
   Widget build(BuildContext context) {
     useEffect(() {
-      Future.delayed(const Duration(seconds: 2), () {
+      Future.delayed(const Duration(seconds: 3), () {
         if (context.mounted) {
           context.go('/home');
         }
@@ -56,22 +56,19 @@ class SplashScreen extends HookWidget {
                       .animate()
                       .fadeIn(duration: 600.ms, curve: Curves.easeOut)
                       .scale(
-                        begin: const Offset(0.6, 0.6), 
-                        end: const Offset(
-                          1.05,
-                          1.05,
-                        ), 
+                        begin: const Offset(0.6, 0.6),
+                        end: const Offset(1.05, 1.05),
                         duration: 700.ms,
-                        curve: Curves.easeOutBack, 
+                        curve: Curves.easeOutBack,
                       )
                       .scale(
                         begin: const Offset(1.05, 1.05),
-                        end: const Offset(1, 1), 
+                        end: const Offset(1, 1),
                         duration: 300.ms,
                         curve: Curves.easeOut,
                       )
                       .slideY(
-                        begin: 0.15, 
+                        begin: 0.15,
                         end: 0,
                         duration: 700.ms,
                         curve: Curves.easeOut,
