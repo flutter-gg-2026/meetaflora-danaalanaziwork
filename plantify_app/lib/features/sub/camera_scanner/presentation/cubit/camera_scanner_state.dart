@@ -10,6 +10,8 @@ abstract class CameraScannerState extends Equatable {
 
 class CameraScannerInitialState extends CameraScannerState {}
 
+class CameraScannerLoadingState extends CameraScannerState {}
+
 class CameraScannerSuccessState extends CameraScannerState {
   final PlantIdentificationEntity responseData;
 

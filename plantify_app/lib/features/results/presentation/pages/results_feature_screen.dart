@@ -92,6 +92,7 @@ class ResultsFeatureScreen extends StatelessWidget {
             if (details?.description != null &&
                 details!.description!.value!.isNotEmpty) ...[
               SectionTitleWidget(textContent: "Description"),
+              Gap(5.sizeSW()),
               Text(
                 details.description!.value!,
                 style: Theme.of(context).textTheme.bodyMedium,

@@ -22,10 +22,10 @@ extension PlantNetClient on DioClient {
         data: jsonEncode(body),
       );
       final accessToken = response.data['access_token'];
-      print("🌱 Access Token: $accessToken");
+      print("Access Token: $accessToken");
       return accessToken;
     } catch (error) {
-      print("❌ Plant Identification ERROR: $error");
+      print("Plant Identification ERROR: $error");
       throw FailureExceptions.getException(error);
     }
   }
@@ -42,16 +42,16 @@ extension PlantNetClient on DioClient {
             "language": "en",
           },
         );
-        print("⏳ Status: ${response.data['status']}");
+        print("Status: ${response.data['status']}");
         await Future.delayed(const Duration(seconds: 2));
       } while (response.data['status'] != 'COMPLETED');
-      print("🌿 Final Result: ${response.data}");
-      print("🌿 RAW JSON RESPONSE:");
+      print("Final Result: ${response.data}");
+      print("RAW JSON RESPONSE:");
       print(const JsonEncoder.withIndent('  ').convert(response.data));
 
       return response.data;
     } catch (error) {
-      print("❌ Polling ERROR: $error");
+      print("Polling ERROR: $error");
       throw FailureExceptions.getException(error);
     }
   }

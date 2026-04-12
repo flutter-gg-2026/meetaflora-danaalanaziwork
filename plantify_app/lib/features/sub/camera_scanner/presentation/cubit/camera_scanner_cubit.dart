@@ -10,6 +10,7 @@ class CameraScannerCubit extends Cubit<CameraScannerState> {
     : super(CameraScannerInitialState());
 
   Future<void> getPlantIdentificationMethod({required String imagePath}) async {
+    emit(CameraScannerLoadingState());
     final result = await _cameraScannerUseCase.identifyPlant(imagePath);
     result.when(
       (success) {
@@ -18,7 +19,7 @@ class CameraScannerCubit extends Cubit<CameraScannerState> {
       },
       (whenError) {
         //here is when error result
-        print("Plant Identification ERROR: $whenError");//delete this later
+        print("Plant Identification ERROR: $whenError"); //delete this later
         emit(CameraScannerErrorState(message: whenError.message));
       },
     );
