@@ -1,10 +1,16 @@
- import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 
-class ResultsWidget extends StatelessWidget {
-  const ResultsWidget({super.key});
+class SectionTitleWidget extends StatelessWidget {
+  const SectionTitleWidget({super.key, required this.textContent});
+  final String textContent;
 
   @override
   Widget build(BuildContext context) {
-    return Placeholder();
+    return Text(
+      textContent,
+      style: Theme.of(
+        context,
+      ).textTheme.titleLarge?.copyWith(fontWeight: .w600),
+    );
   }
-  }
+}

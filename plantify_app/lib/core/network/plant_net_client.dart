@@ -35,7 +35,13 @@ extension PlantNetClient on DioClient {
       late Response response;
 
       do {
-        response = await dio.get("${ApiEndpoints.identifyPlant}/$accessToken");
+        response = await dio.get(
+          "${ApiEndpoints.identifyPlant}/$accessToken",
+          queryParameters: {
+            "details": "common_names,url,description,taxonomy,synonyms",
+            "language": "en",
+          },
+        );
         print("⏳ Status: ${response.data['status']}");
         await Future.delayed(const Duration(seconds: 2));
       } while (response.data['status'] != 'COMPLETED');
