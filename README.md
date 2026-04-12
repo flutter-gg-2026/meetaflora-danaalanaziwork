@@ -88,13 +88,14 @@ flutter pub run flutter_launcher_icons
 _____________________________________________________________________________________
 
 ### 📸 Screenshots:
-# Splash Screen :
+## Splash Screen :
 <img width="300" height="500" alt="Simulator Screenshot - iPhone 16e - 2026-04-12 at 06 34 01" src="https://github.com/user-attachments/assets/f8169fca-e9fa-46dd-9008-b2919e13cd77" />
-# Home Screen :
+
+## Home Screen :
 
 <img width="300" height="500" alt="Simulator Screenshot - iPhone 16e - 2026-04-12 at 06 34 07" src="https://github.com/user-attachments/assets/167b6371-35ab-4f59-aadf-52e7214a4ae6" />
 
-# Results Screen :
+## Results Screen :
 <img width="300" height="500" alt="Simulator Screenshot - iPhone 16e - 2026-04-12 at 06 35 04" src="https://github.com/user-attachments/assets/7690ea96-c326-4c65-8d06-9a9b527876a6" />
 
 <img width="300" height="500" alt="Simulator Screenshot - iPhone 16e - 2026-04-12 at 06 35 14" src="https://github.com/user-attachments/assets/07bc31db-fe6b-4b2a-b4ed-2459bf0ec736" />
