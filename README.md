@@ -1,4 +1,4 @@
-🌿 Plantify – AI Plant Identification App
+## 🌿 Plantify – AI Plant Identification App
 Plantify is a modern Flutter application that identifies plants using AI.
 Users can take a photo or upload one from their gallery, and Plantify analyzes the image using the Plant.id API to provide detailed plant information such as:
 
@@ -14,11 +14,13 @@ Synonyms
 
 Similar images
 
-And more
+And more...
 
-The app is built with clean architecture, smooth animations, and a minimal, elegant UI.
+------------------------------------------------------------
 
-✨ Features
+## The app is built with clean architecture, smooth animations, and a minimal, elegant UI.
+
+# ✨ Features: 
 📸 Camera Capture – Take a photo directly inside the app
 
 🖼️ Gallery Upload – Select existing images from your device
@@ -35,7 +37,10 @@ The app is built with clean architecture, smooth animations, and a minimal, eleg
 
 📱 Android & iOS Support
 
-🏗️ Tech Stack
+------------------------------------------------------------
+
+## 🏗️ Tech Stack: 
+
 Flutter
 
 Bloc / Cubit
@@ -54,20 +59,10 @@ image_picker
 
 Plant.id API
 
-📂 Project Structure
+------------------------------------------------------------
 
-lib/
- ├── core/
- ├── features/
- │    ├── camera_scanner/
- │    │     ├── data/
- │    │     ├── domain/
- │    │     └── presentation/
- │    └── home/
- ├── injection/
- └── main.dart
 
-🚀 Getting Started
+## 🚀 Getting Started:
 
 1. Clone the repository
 
@@ -91,8 +86,16 @@ Plantify uses flutter_launcher_icons to generate platform‑specific icons.
 To regenerate icons:
 flutter pub run flutter_launcher_icons
 
-📸 Screenshots
-Add screenshots here
+------------------------------------------------------------
 
-🎥 Demo
-Add demo video or GIF here
+## 📸 Screenshots:
+# Splash Screen:
+
+
+# Home Screen:
+
+
+# Results Screen:
+
+------------------------------------------------------------
+## 🎥 Demo:
