@@ -27,6 +27,10 @@ class GalleryScannerFeatureWidget extends StatelessWidget {
               if (state is CameraScannerLoadingState) {
                 context.showLoading();
               }
+              if (state is CameraScannerErrorState) {
+                context.hideLoading();
+                context.showSnackBar(state.message, isError: true);
+              }
             },
             child: InkWell(
               onTap: cubit.pickImageFromGallery,
